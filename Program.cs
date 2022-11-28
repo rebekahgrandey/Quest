@@ -39,16 +39,20 @@ namespace Quest
             // Here we set some reasonable min and max values.
             //  If an Adventurer has an Awesomeness greater than the max, they are truly awesome
             //  If an Adventurer has an Awesomeness less than the min, they are terrible
-            int minAwesomeness = 0;
-            int maxAwesomeness = 100;
+            bool endGame = false;
+            while (!endGame)
+            {
+                Console.Clear();
+                int minAwesomeness = 0;
+                int maxAwesomeness = 100;
 
-            // Make a new "Adventurer" object using the "Adventurer" class
-            Console.Write("Enter your character's name: ");
-            Adventurer theAdventurer = new Adventurer(Console.ReadLine());
+                // Make a new "Adventurer" object using the "Adventurer" class
+                Console.Write("Enter your character's name: ");
+                Adventurer theAdventurer = new Adventurer(Console.ReadLine());
 
-            // A list of challenges for the Adventurer to complete
-            // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
-            List<Challenge> challenges = new List<Challenge>()
+                // A list of challenges for the Adventurer to complete
+                // Note we can use the List class here because have the line "using System.Collections.Generic;" at the top of the file.
+                List<Challenge> challenges = new List<Challenge>()
             {
                 twoPlusTwo,
                 theAnswer,
@@ -57,25 +61,31 @@ namespace Quest
                 favoriteBeatle
             };
 
-            // Loop through all the challenges and subject the Adventurer to them
-            foreach (Challenge challenge in challenges)
-            {
-                challenge.RunChallenge(theAdventurer);
-            }
+                // Loop through all the challenges and subject the Adventurer to them
+                foreach (Challenge challenge in challenges)
+                {
+                    challenge.RunChallenge(theAdventurer);
+                }
 
-            // This code examines how Awesome the Adventurer is after completing the challenges
-            // And praises or humiliates them accordingly
-            if (theAdventurer.Awesomeness >= maxAwesomeness)
-            {
-                Console.WriteLine("YOU DID IT! You are truly awesome!");
-            }
-            else if (theAdventurer.Awesomeness <= minAwesomeness)
-            {
-                Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
-            }
-            else
-            {
-                Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                // This code examines how Awesome the Adventurer is after completing the challenges
+                // And praises or humiliates them accordingly
+                if (theAdventurer.Awesomeness >= maxAwesomeness)
+                {
+                    Console.WriteLine("YOU DID IT! You are truly awesome!");
+                }
+                else if (theAdventurer.Awesomeness <= minAwesomeness)
+                {
+                    Console.WriteLine("Get out of my sight. Your lack of awesomeness offends me!");
+                }
+                else
+                {
+                    Console.WriteLine("I guess you did...ok? ...sorta. Still, you should get out of my sight.");
+                }
+
+                Console.WriteLine();
+                Console.Write("Play again? Y/N: ");
+                endGame = Console.ReadLine().ToLower() == "y" ? false : true;
+
             }
         }
     }
