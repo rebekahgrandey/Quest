@@ -4,7 +4,7 @@ namespace Quest
     public class Adventurer
     {
         // This is an "immutable" property. It only has a "get".
-        // The only place the Name can be set is in the Adventurer constructor
+        // The only place the Name can be set is in the Adventurer constructor <- why
         // Note: the constructor is defined below.
         public string Name { get; }
 
