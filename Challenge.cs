@@ -8,6 +8,7 @@ namespace Quest
         // These private fields hold the "state" of an individual challenge object.
         // The values stored in these fields are not accessible outside the class,
         //  but can be used by methods or properties within the class
+        //~the point of fields
         private string _text;
         private int _correctAnswer;
         private int _awesomenessChange;
@@ -31,6 +32,7 @@ namespace Quest
             string answer = Console.ReadLine();
 
             int numAnswer;
+            //~ made a new variable with no value??
             bool isNumber = int.TryParse(answer, out numAnswer);
 
             Console.WriteLine();

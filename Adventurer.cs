@@ -1,3 +1,5 @@
+using System.Text;
+
 namespace Quest
 {
     // An instance of the Adventurer class is an object that will undergo some challenges
@@ -12,13 +14,18 @@ namespace Quest
         //  So it can be read and changed by any code in the application
         public int Awesomeness { get; set; }
 
+        // Add a new immutable property to the Adventurer class called ColorfulRobe. The type of this property should be Robe.
+        public Robe ColorfulRobe { get; }
+
         // A constructor to make a new Adventurer object with a given name
-        public Adventurer(string name)
+
+        //Add a new constructor parameter to the Adventurer class to accept a Robe and to set the ColorfulRobe property.
+        public Adventurer(string name, Robe adventurerRobe)
         {
             Name = name;
             Awesomeness = 50;
+            ColorfulRobe = adventurerRobe;
         }
-
 
         // This method returns a string that describes the Adventurer's status
         // Note one way to describe what this method does is:
@@ -44,6 +51,10 @@ namespace Quest
             }
 
             return $"Adventurer, {Name}, is {status}";
+        }
+        public string GetDescription()
+        {
+            return $"{Name}'s robe is {ColorfulRobe.Length} inches long.";
         }
     }
 }

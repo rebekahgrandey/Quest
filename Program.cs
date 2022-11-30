@@ -7,7 +7,7 @@ namespace Quest
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main(string[] args) //~ explain and string args
         {
             // Create a few challenges for our Adventurer's quest
             // The "Challenge" Constructor takes three arguments
@@ -47,6 +47,12 @@ namespace Quest
                 int maxAwesomeness = 100;
 
                 // Make a new "Adventurer" object using the "Adventurer" class
+                Robe adventurerRobe = new Robe()
+                {
+                    Colors = new List<string> { "peach", "olive green", "cerulean blue", "goldenrod", "indigo", "crimson" },
+                    Length = 42
+                };
+
                 Console.Write("Enter your character's name: ");
                 Adventurer theAdventurer = new Adventurer(Console.ReadLine());
 
